@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header-comp>{{titulo}}</header-comp>
+        <anadirtarea-comp :tareas="tareas"></anadirtarea-comp>
+        <tareas-comp :tareas="tareas"></tareas-comp>
+        <footer-comp :tareas="tareas"></footer-comp>
+    </div>
+
+
+    <!-- templates -->
+    <template id="header-temp">
+        <header>
+            <h1 v-once><slot></slot></h1>
+        </header>
+    </template>
+
+    <template id="tareas-temp">
+        <div class="tareas">
+            <ul>
+                <transition-group name="slide-fade">                            
+                    <li v-for="(tarea, key) in tareas" :key="key">
+                        <span :class="{completada: tarea.completada}">{{tarea.nombre | upperCase }}</span>
+                        <div>
+                            <button class="btn bg-green" @click="completarTarea(key)">V</button>
+                            <button class="btn bg-red" @click="eliminarTarea(key)">X</button>
+                        </div>
+                    </li>
+                </transition-group>
+            </ul>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+</html>
