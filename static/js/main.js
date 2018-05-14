@@ -1,5 +1,6 @@
 "use strict"
 //Componente footer
+
 Vue.component("footer-comp",{
     props:["tareas"],
     template: `

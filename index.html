@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="./static//images/icons/icon-72x72.png" type="image/x-icon">
+    <link rel="stylesheet" href="./static/styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="manifest" href="./static/manifest.json">
 </head>
+
 <body>
     <div id="app">
         <header-comp>{{titulo}}</header-comp>
@@ -20,14 +24,16 @@
     <!-- templates -->
     <template id="header-temp">
         <header>
-            <h1 v-once><slot></slot></h1>
+            <h1 v-once>
+                <slot></slot>
+            </h1>
         </header>
     </template>
 
     <template id="tareas-temp">
         <div class="tareas">
             <ul>
-                <transition-group name="slide-fade">                            
+                <transition-group name="slide-fade">
                     <li v-for="(tarea, key) in tareas" :key="key">
                         <span :class="{completada: tarea.completada}">{{tarea.nombre | upperCase }}</span>
                         <div>
@@ -40,6 +46,14 @@
         </div>
     </template>
 
-    <script src="main.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js")
+            })
+        }
+    </script>
 </body>
+
 </html>
