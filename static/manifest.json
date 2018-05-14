@@ -1,11 +1,11 @@
 {
-  "name": "Vuejs Todolist",
+  "name": "Vuejs TodoList",
   "short_name": "VTL",
-  "theme_color": "#21f356",
-  "background_color": "#329082",
+  "theme_color": "#21f37b",
+  "background_color": "#2d2d2d",
   "display": "minimal-ui",
   "Scope": "/",
-  "start_url": "Todolist-vuejs-component/",
+  "start_url": "/Todolist-vuejs-component/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
