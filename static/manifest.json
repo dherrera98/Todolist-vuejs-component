@@ -5,7 +5,7 @@
   "background_color": "#329082",
   "display": "minimal-ui",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "Todolist-vuejs-component/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
