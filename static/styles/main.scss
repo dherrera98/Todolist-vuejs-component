@@ -20,13 +20,13 @@ header{
     background-color: whitesmoke;
     height: 50px;
     position: fixed;
-    border-bottom: 5px solid #098E40;
+    border-bottom: 5px solid #42B884;
     h1{
         text-align: center;
         font-size: 36px;
         line-height: 50px;
         margin: 0;
-        color: #0D8565;
+        color: rgb(45, 114, 84);
     }
 }
 
@@ -92,13 +92,13 @@ footer{
     height: 30px;
     bottom: 0;
     background-color: whitesmoke;
-    border-top: 3px solid #098E40;
+    border-top: 3px solid #42B884;
     display: flex;
     align-items: center;
     justify-content: left;
     p{
         margin: 0 15px;
-        color: rgb(5, 80, 60);
+        color: #35495E;
     }
     @media (max-width:480px) {
         font-size: 12px;

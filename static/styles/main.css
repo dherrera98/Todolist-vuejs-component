@@ -27,7 +27,7 @@
 }
 
 .bg-green {
-  background-color: #4CAF50;
+  background-color: #63c567;
 }
 
 .bg-blue {
@@ -35,7 +35,7 @@
 }
 
 .bg-red {
-  background-color: #F44336;
+  background-color: #f8685e;
 }
 
 .bg-orange {
@@ -66,7 +66,7 @@ header {
   background-color: whitesmoke;
   height: 50px;
   position: fixed;
-  border-bottom: 5px solid #098E40;
+  border-bottom: 5px solid #42B884;
 }
 
 header h1 {
@@ -74,7 +74,7 @@ header h1 {
   font-size: 36px;
   line-height: 50px;
   margin: 0;
-  color: #0D8565;
+  color: #2d7254;
 }
 
 .tareas {
@@ -146,7 +146,7 @@ footer {
   height: 30px;
   bottom: 0;
   background-color: whitesmoke;
-  border-top: 3px solid #098E40;
+  border-top: 3px solid #42B884;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -154,7 +154,7 @@ footer {
 
 footer p {
   margin: 0 15px;
-  color: #05503c;
+  color: #35495E;
 }
 
 @media (max-width: 480px) {
