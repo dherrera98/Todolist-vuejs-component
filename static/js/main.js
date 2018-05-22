@@ -44,7 +44,6 @@ Vue.component("header-comp",{
 
 //Componente header
 Vue.component("anadirtarea-comp",{
-    props:["tareas"],
     template:`
     <div class="anadirTarea">
         <input type="text" v-model="inputNuevo" @keyup.enter="anadir()" placeholder="Nueva tarea" :maxlength="max">
@@ -57,11 +56,11 @@ Vue.component("anadirtarea-comp",{
     methods:{
         anadir(){
             if(this.inputNuevo != ""){
-                this.tareas.unshift({
+                this.$emit("nueva-tarea",({
                     nombre: this.inputNuevo,
                     prioridad: false,
                     completada: false
-                })
+                }))
                 this.inputNuevo = ""
             }
             let tareasStorage = localStorage.setItem("tareas",JSON.stringify(this.tareas))
@@ -80,13 +79,11 @@ Vue.component("tareas-comp",{
     template:"#tareas-temp",
     methods:{
         eliminarTarea(key){
-            this.tareas.splice(key,1)
-            let tareasStorage = localStorage.setItem("tareas",JSON.stringify(this.tareas))
+            this.$emit("elim-tarea", key)
         },
 
         completarTarea(key){
-            this.tareas[key].completada = !this.tareas[key].completada
-            let tareasStorage = localStorage.setItem("tareas",JSON.stringify(this.tareas))
+            this.$emit("comp-tarea", key)
         },
     },
     filters:{
@@ -115,5 +112,21 @@ const app = new Vue({
             this.tareas = JSON.parse(localStorage.getItem("tareas"))
         }
     },
+
+    updated(){
+        let tareasStorage = localStorage.setItem("tareas",JSON.stringify(this.tareas))
+    },
+
+    methods:{
+        borrar(key){
+            this.tareas.splice(key,1);
+        },
+        estado(key){
+            this.tareas[key].completada = !this.tareas[key].completada
+        },
+        nuevaTarea(datos){
+            this.tareas.unshift(datos)
+        }
+    }
 
 })

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Vuejs TodoList</title>
     <link rel="shortcut icon" href="./static//images/icons/icon-72x72.png" type="image/x-icon">
     <link rel="stylesheet" href="./static/styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -15,8 +15,8 @@
 <body>
     <div id="app">
         <header-comp>{{titulo}}</header-comp>
-        <anadirtarea-comp :tareas="tareas"></anadirtarea-comp>
-        <tareas-comp :tareas="tareas"></tareas-comp>
+        <anadirtarea-comp @nueva-tarea="nuevaTarea($event)"></anadirtarea-comp>
+        <tareas-comp :tareas="tareas" @elim-tarea="borrar($event)" @comp-tarea="estado($event)"></tareas-comp>
         <footer-comp :tareas="tareas"></footer-comp>
     </div>
 
