@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./static/styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <link rel="manifest" href="./static/manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
 </head>
 
 <body>
@@ -34,15 +36,17 @@
     <template id="tareas-temp">
         <div class="tareas">
             <ul>
-                <transition-group name="slide-fade">
-                    <li v-for="(tarea, key) in tareas" :key="key">
-                        <span :class="{completada: tarea.completada}">{{tarea.nombre | upperCase }}</span>
-                        <div>
-                            <button class="btn bg-green" @click="completarTarea(key)">V</button>
-                            <button class="btn bg-red" @click="eliminarTarea(key)">X</button>
-                        </div>
-                    </li>
-                </transition-group>
+                <draggable :list="tareas">
+                    <transition-group name="slide-fade">
+                        <li v-for="(tarea, key) in tareas" :key="key">
+                            <span :class="{completada: tarea.completada}">{{tarea.nombre | upperCase }}</span>
+                            <div>
+                                <button class="btn bg-green" @click="completarTarea(key)">V</button>
+                                <button class="btn bg-red" @click="eliminarTarea(key)">X</button>
+                            </div>
+                        </li>
+                    </transition-group>
+                </draggable>
             </ul>
         </div>
     </template>
